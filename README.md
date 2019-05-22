@@ -8,7 +8,7 @@ Scores beyond deuce are called as "advantage player X"
 Victory is called as "game player X"
 
 The User should give as input a sequence of points for both players.
-player 1 would have A as point and player 2 B as a point.
+Player 1 would have A as point and player 2 B as a point.
 
-Examples Point Score Sequence (A = player A scores, B = player B scores) Expected Score Call A 15-love AA 30-love AAA 40-love AAAA game player A BB love-30 ABAB 30-all AAABBB deuce AAABBBA advantage player A AAABBBABBB game player B
+Examples Point Score Sequence (A = player 1 scores, B = player 2 scores) Expected Score Call A 15-love AA 30-love AAA 40-love AAAA game player 1 BB love-30 ABAB 30-all AAABBB deuce AAABBBA advantage player 1 AAABBBABBB game player 2
 
