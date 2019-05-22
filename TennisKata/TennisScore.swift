@@ -9,26 +9,24 @@
 import Foundation
 
 public class TennisScore {
-    
-    public func getMatchPoints(matchPoints: String) -> String {
+    public func fromInput(matchPoints: String) -> String {
         var player1 = 0
         var player2 = 0
         
         for point in matchPoints {
-            if HasWon(player1, player2: player2){
-                return "match points error"
-                
-                if point == "A" {
-                    player1 += 1
-                } else if point == "B"  {
-                    player2 += 1
-                } else {
-                    return "match points error"
-                }
+            if weHaveAWinner(a: player1, b: player2){
+                return "invalid matchPoints"
             }
             
-            
+            if point == "A" {
+                player1 += 1
+            } else if point == "B"  {
+                player2 += 1
+            } else {
+                return "invalid matchPoints"
+            }
         }
+        
         if (player2>3 && player1+1<player2) {
             return "game player B"
         }
@@ -50,8 +48,8 @@ public class TennisScore {
             return "deuce"
         }
         
-        let player1Score = getScore(player1, player: "A")
-        let player2Score = getScore(player2, player: "B")
+        let aScore = getScore(s: player1, player: "A")
+        let bScore = getScore(s: player2, player: "B")
         
         
         if (player1 == player2) {
@@ -62,4 +60,18 @@ public class TennisScore {
         
     }
     
+    func getScore(s:Int, player:String) ->String{
+        switch s {
+        case 0:
+            return "love"
+        case 3:
+            return "40"
+        default:
+            return "\(15 * s)"
+        }
+    }
+    
+    func weHaveAWinner(a:Int, b:Int) -> Bool{
+        return (a>3 && a-b >= 2) || (b>3 && b-a >= 2)
+    }
 }
